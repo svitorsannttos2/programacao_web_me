@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='script.css') }}">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+    <header>
+        <h1 class="page_title">Cadastro</h1>
+        <h4 class="what_to_do">(click the menu icon)</h4>
+        
+        <div class="side_menu">
+            <div class="burger_box">
+                <div class="menu-icon-container">
+                    <a href="#" class="menu-icon js-menu_toggle closed">
+                        <span class="menu-icon_box">
+                            <span class="menu-icon_line menu-icon_line--1"></span>
+                            <span class="menu-icon_line menu-icon_line--2"></span>
+                            <span class="menu-icon_line menu-icon_line--3"></span>
+                        </span>
+                    </a>
+                </div>
+            </div>
+            <div class="px-5">
+                <h2 class="menu_title">Menu</h2>
+                <ul class="list_load">
+                    <li class="list_item"><a href="add-user">+ User</a></li>
+                    <li class="list_item"><a href="add-passanger">+ Passanger</a></li>
+                    <li class="list_item"><a href="add-driver">+ Driver</a></li>
+                    <li class="list_item"><a href="add-vehicle">+ Vehicle</a></li>
+                    <li class="list_item"><a href="transport">Transport</a></li>
+                    <li class="list_item"><a href="report">Report</a></li>
+                </ul>
+            </div>
+        </div>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+            <script src="../static/script.js"></script>
+    </header>
+    <main>
+        {% block content %} {% endblock %}
+    </main>
+</body>
+</html>
