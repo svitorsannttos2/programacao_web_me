@@ -1,6 +1,6 @@
 DEBUG = True
 
-SQLALCHEMY_DATABASE_URI = 'postgresql://postgres:20281951aA$@localhost/flask_web'
+SQLALCHEMY_DATABASE_URI = 'postgresql://postgres:PassW0rd@localhost/flask_web'
 
 SECRET_KEY = 'ola-galera-python'
 
