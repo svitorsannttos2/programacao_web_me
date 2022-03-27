@@ -3,7 +3,7 @@ from datetime import datetime
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String, nullable=False)
+    nome = db.Column(db.String, nullable=False)
     cpf = db.Column(db.String, unique=True, nullable=False)
     endereco = db.Column(db.String, nullable=False)
     data_nascimento = db.Column(db.DateTime, nullable=False)
@@ -11,8 +11,8 @@ class User(db.Model):
     senha = db.Column(db.String, nullable=False)
 
 
-    def __init__(self, name, cpf, endereco, data_nascimento, login, senha):
-        self.name = name
+    def __init__(self, nome, cpf, endereco, data_nascimento, login, senha):
+        self.nome = nome
         self.cpf = cpf
         self.endereco = endereco
         self.data_nascimento = data_nascimento
@@ -20,4 +20,4 @@ class User(db.Model):
         self.senha = senha
 
     def __repr__(self):
-        return '<User %r>' % self.name
+        return '<User %r>' % self.nome
