@@ -24,3 +24,19 @@ def addUser():
 @app.route('/add-vehicle')
 def addVehicle():
     return render_template('addVehicle.html')
+
+@app.route('/add-passanger')
+def addPassanger():
+    return render_template('addPassanger.html')
+
+@app.route('/add-driver')
+def addDriver():
+    return render_template('addDriver.html')
+
+@app.route('/transport')
+def transport():
+    return render_template('transport.html')
+
+@app.route('/report')
+def report():
+    return render_template('report.html')
