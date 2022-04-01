@@ -1,10 +1,11 @@
-from flask import Flask, Response, request, render_template, redirect, url_for
+from flask import Flask, Response, request, render_template, redirect, url_for, flash, session
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:@localhost/web_flask'
 db = SQLAlchemy(app)
+app.secret_key = 'web'
 
 
 # Tabelas do banco de dados
@@ -156,6 +157,26 @@ def transport():
 def report():
     relatorios_objetos = Transporte.query.all()
     return render_template("report.html", relatorios_objetos=relatorios_objetos)
+
+@app.route("/login")
+def login():
+    return render_template("login.html")
+
+@app.route("/autenticar", methods=['POST','GET'])
+def autenticar():
+    if "admin" == request.form['senha']:
+        session['usuario_logado'] = request.form['usuario']
+        flash(session['usuario_logado'] + ' logado com sucesso!')
+        return redirect("/")
+    else:
+        flash('Usuário ou senha invalida!')
+        return redirect("/login")
+
+@app.route("/logout")
+def logout():
+    session['usuario_logado'] = None
+    flash('Logout efetuado com sucesso!')
+    return redirect("/")
 
 if __name__ == '__main__':
     app.run(debug=True)

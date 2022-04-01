@@ -8,29 +8,24 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    {% block content %}
-        <h1 class="d-flex justify-content-center">Login</h1>
-        <div class="container">
-                <div class="d-flex justify-content-center">
-                    <div class="col col-xl-3" >
-                        <form action="/dashboard" method="POST">
-                            {{ form.csrf_token }}
-                            <fieldset>
-                                <div class="form-group">
-                                    <label class="mb-2 mt-2 flex-wrap" for="email">E-mail</label>
-                                    {{ form.email(class="mt-2 w-100 form-control", placeholder="Digite seu e-mail...") }}
-                                <div class="form-group">
-                                    <label class="mb-2 mt-2" for="senha">Senha</label>
-                                    {{ form.senha(class="mt-2 w-100 form-control", placeholder="Digite sua senha...") }}
-                                </div>
-                                <div class="d-flex mt-3 justify-content-center">
-                                    <button type="submit" name="submit" id="submit" class="btn btn-secondary btn-salvar">Entrar</button>
-                                </div>
-                            </fieldset>
-                        </form>
-                    </div>
-                </div>
-            </div>
-    {% endblock %}
+<div class="container">
+
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul id="messages" class="list-unstyled">
+                {% for message in messages %}
+                    <li class="alert alert-success">{{ message }}</li>
+                {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+
+        <h1>Faça seu login</h1>
+        <form method="POST" action="/autenticar">
+            <p><label>Nome de usuário:</label> <input class="form-control" type="text" name="usuario" required></p>
+            <p><label>Senha:</label> <input class="form-control" type="password" name="senha" required></p>
+            <p><button class="btn btn-primary" type="submit">Entrar</button></p>
+        </form>
+    </div>
 </body>
 </html>
