@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add User</title>
+</head>
+<body>
+  <header>
+    {% extends "header.html" %}
+  </header>
+  {% block content %}
+  <div class="container">
+    <div class="d-flex justify-content-center">
+      <div class="container mt-5">
+        <div class="white"><h1 style="color: white;">Tabela de usuários:</h1></div>
+        <table class="table table-striped table-dark">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Nome</th>
+              <th scope="col">CPF</th>
+              <th scope="col">Data Nascimento</th>
+              <th scope="col">Endereço</th>
+              <th scope="col">Login</th>
+              <th scope="col">Senha</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for user in usuarios_objetos %}
+                <tr>
+                  <td>{{ user.id }}</td>
+                  <td>{{ user.nome }}</td>
+                  <td>{{ user.cpf }}</td>
+                  <td>{{ user.data_nascimento }}</td>
+                  <td>{{ user.endereco }}</td>
+                  <td>{{ user.login }}</td>
+                  <td>{{ user.senha }}</td>
+                </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="d-flex justify-content-center">
+      <div class="container mt-5">
+        <div class="white"><h1 style="color: white;">Tabela de passageiros:</h1></div>
+        <table class="table table-striped table-dark">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Nome</th>
+              <th scope="col">CPF</th>
+              <th scope="col">Data Nascimento</th>
+              <th scope="col">Endereço</th>
+              <th scope="col">Cidade</th>
+              <th scope="col">UF</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for passageiro in passageiros_objetos %}
+                <tr>
+                  <td>{{ passageiro.id }}</td>
+                  <td>{{ passageiro.nome }}</td>
+                  <td>{{ passageiro.cpf }}</td>
+                  <td>{{ passageiro.data_nascimento }}</td>
+                  <td>{{ passageiro.endereco }}</td>
+                  <td>{{ passageiro.cidade }}</td>
+                  <td>{{ passageiro.uf }}</td>
+                </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="d-flex justify-content-center">
+      <div class="container mt-5">
+        <div class="white"><h1 style="color: white;">Tabela de motoristas:</h1></div>
+        <table class="table table-striped table-dark">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Nome</th>
+              <th scope="col">CPF</th>
+              <th scope="col">Data Nascimento</th>
+              <th scope="col">Endereço</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for motorista in motoristas_objetos %}
+                <tr>
+                  <td>{{ motorista.id }}</td>
+                  <td>{{ motorista.nome }}</td>
+                  <td>{{ motorista.cpf }}</td>
+                  <td>{{ motorista.data_nascimento }}</td>
+                  <td>{{ motorista.endereco }}</td>
+                </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="d-flex justify-content-center">
+      <div class="container mt-5">
+        <div class="white"><h1 style="color: white;">Tabela de veículos:</h1></div>
+        <table class="table table-striped table-dark">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Nome</th>
+              <th scope="col">CPF</th>
+              <th scope="col">Tipo</th>
+              <th scope="col">Placa</th>
+              <th scope="col">Marca</th>
+              <th scope="col">Modelo</th>
+              <th scope="col">Ano</th>
+              <th scope="col">Capacidade</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for veiculo in veiculos_objetos %}
+                <tr>
+                  <td>{{ veiculo.id }}</td>
+                  <td>{{ veiculo.nome }}</td>
+                  <td>{{ veiculo.cpf }}</td>
+                  <td>{{ veiculo.tipo }}</td>
+                  <td>{{ veiculo.placa }}</td>
+                  <td>{{ veiculo.marca }}</td>
+                  <td>{{ veiculo.modelo }}</td>
+                  <td>{{ veiculo.ano }}</td>
+                  <td>{{ veiculo.capacidade }}</td>
+                </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  {% endblock %}
+</body>
+</html>

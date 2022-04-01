@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add User</title>
+</head>
+<body>
+  <header>
+    {% extends "header.html" %}
+  </header>
+  {% block content %}
+  <div class="container">
+    <div class="d-flex justify-content-center">
+      <div class="container mt-5">
+        <div class="white"><h1 style="color: white;">Tabela de veículos:</h1></div>
+        <table class="table table-striped table-dark">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">CPF</th>
+              <th scope="col">Placa</th>
+              <th scope="col">Data Transporte</th>
+              <th scope="col">KM</th>
+              <th scope="col">Preço KM</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for relatorio in relatorios_objetos %}
+                <tr>
+                  <td>{{ relatorio.id }}</td>
+                  <td>{{ relatorio.cpf }}</td>
+                  <td>{{ relatorio.placa }}</td>
+                  <td>{{ relatorio.data_nascimento }}</td>
+                  <td>{{ relatorio.km}}</td>
+                  <td>{{ relatorio.km * 0.40}}</td>
+                </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  {% endblock %}
+</body>
+</html>
