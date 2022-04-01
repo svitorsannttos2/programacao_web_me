@@ -106,6 +106,8 @@ def index():
     veiculos_objetos = Veiculo.query.all()
     passageiros_objetos = Passageiro.query.all()
     motoristas_objetos = Motorista.query.all()
+    if 'usuario_logado' not in session or session['usuario_logado'] == None:
+        return redirect(url_for('login'))
     return render_template("dashboard.html", usuarios_objetos=usuarios_objetos, veiculos_objetos=veiculos_objetos, passageiros_objetos=passageiros_objetos, motoristas_objetos=motoristas_objetos)
 
 @app.route("/add-user", methods=["GET","POST"])
