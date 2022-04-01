@@ -166,7 +166,7 @@ def login():
 
 @app.route("/autenticar", methods=['POST','GET'])
 def autenticar():
-    if "admin" == request.form['senha']:
+    if "admin" == request.form['usuario'] and "admin" == request.form['senha']:
         session['usuario_logado'] = request.form['usuario']
         flash(session['usuario_logado'] + ' logado com sucesso!')
         return redirect("/")
